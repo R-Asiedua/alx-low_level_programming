@@ -4,9 +4,10 @@
  *main prints _putchar followed by a new line
  *the programme returns to zero
  */
- int main (void){
-        puts("_putchar");
+int main(void)
+{
+	puts("_putchar");
 
-    return 0;
+	return (0);
  }
 
