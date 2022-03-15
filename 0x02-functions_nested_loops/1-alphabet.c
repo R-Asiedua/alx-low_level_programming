@@ -2,18 +2,16 @@
 
 /**
  * print_alphabet - prints the alphabet, in lowercase, followed by a new line
+ *
+ *Return: Always0 (Success)
  */
-void print_alphabet(void);
+void print_alphabet(void)
 {
-	char ch;
+	int n;
 
-	ch = 'a';
-
-	while (ch <= 'z')
+	for (n = 'a'; n <= 'z'; n++)
 	{
-		_putchar(ch);
-		ch++;
+		_putchar(n);
 	}
-
 	_putchar('\n');
 }
