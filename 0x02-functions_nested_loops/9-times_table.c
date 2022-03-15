@@ -1,22 +1,36 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
- * main - prints all possible combinations of single-digit numbers
- * Return: Always 0 (Success)
+ * times_table - prints the 9 times table, starting with 0
  */
-int main(void)
+void times_table(void)
 {
-	int n;
+	int i, j, k;
 
-	for (n = 48; n < 58; n++)
+	for (i = 0; i < 10; i++)
 	{
-		putchar(n);
-		if (n != 57)
+		for (j = 0; j < 10; j++)
 		{
-			putchar(',');
-			putchar(' ');
+			k = j * i;
+			if (j == 0)
+			{
+				_putchar(k + '0');
+			}
+
+			if (k < 10 && j != 0)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(k + '0');
+			} else if (k >= 10)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar((k / 10) + '0');
+				_putchar((k % 10) + '0');
+			}
 		}
+		_putchar('\n');
 	}
-	putchar('\n');
-	return (0);
 }
