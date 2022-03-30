@@ -1,63 +1,48 @@
 #include "main.h"
-
-int find_strlen(char *s);
-int check_palindrome(char *s, int len, int index);
-int is_palindrome(char *s);
-
+int lengthc(char *s);
+int palindrome(char str[], int st, int end);
 /**
- * find_strlen - Returns the length of a string.
- * @s: The string to be measured.
- *
- * Return: The length of the string.
+ * is_palindrome - Entry Point
+ * @s: input
+ * Return: 0
  */
-int find_strlen(char *s)
+int is_palindrome(char *s)
 {
-	int len = 0;
+	int len;
 
-	if (*(s + len))
-	{
-		len++;
-		len += find_strlen(s + len);
-	}
+	len = lengthc(s);
 
-	return (len);
+	if (len == 0)
+		return (1);
+	return (palindrome(s, 0, len - 1));
 }
 
 /**
- * check_palindrome - Checks if a string is a palindrome.
- * @s: The string to be checked.
- * @len: The length of s.
- * @index: The index of the string to be checked.
- *
- * Return: If the string is a palindrome - 1.
- *         If the string is not a palindrome - 0.
+ * lengthc - finds the length count
+ * @s: input
+ * Return: length size
  */
-int check_palindrome(char *s, int len, int index)
+int lengthc(char *s)
 {
-	if (s[index] == s[len / 2])
-		return (1);
-
-	if (s[index] == s[len - index - 1])
-		return (check_palindrome(s, len, index + 1));
-
+	if (*s != '\0')
+		return (1 + lengthc(s + 1));
 	return (0);
 }
 
 /**
- * is_palindrome - Checks if a string is a palindrome.
- * @s: The string to be checked.
- *
- * Return: If the string is a palindrome - 1.
- *         If the string is not a palindrome - 0.
+ * palindrome - checks if start and end of string matches
+ * @str: string
+ * @st: start of string 0
+ * @end: end of string from is_palindrome, from lengthc
+ * Return: if str is a palindrome
  */
-int is_palindrome(char *s)
+int palindrome(char str[], int st, int end)
 {
-	int index = 0;
-	int len = find_strlen(s);
-
-	if (!(*s))
+	if (st >= end)
 		return (1);
-
-	return (check_palindrome(s, len, index));
+	if (str[st] != str[end])
+		return (0);
+	if (st <= end || st < end + 1)
+		return (palindrome(str, st + 1, end - 1));
+	return (1);
 }
-
