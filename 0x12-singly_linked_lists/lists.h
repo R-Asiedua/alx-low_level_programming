@@ -17,11 +17,11 @@
  * Description: singly linked list node structure
  *              for Holberton project
  */
-typedef struct list_s
+typedef struct list_t
 {
 	char *str;
 	unsigned int len;
-	struct list_s *next;
+	struct list_t *next;
 } list_t;
 
 size_t print_list(const list_t *h);
