@@ -18,7 +18,7 @@ typedef struct list_t
 {
 	char *str;
 	unsigned int len;
-	struct list_h *next;
+	struct list_t *next;
 } list_t;
 
 int _putchar(char c);
